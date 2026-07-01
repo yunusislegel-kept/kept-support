@@ -354,7 +354,8 @@
         <span class="pill">No tracking</span>
         <span class="pill">No cloud sync</span>
         <span class="pill">Manual export only</span>
-        <span class="pill">7 languages</span>
+        <span class="pill">7 app languages</span>
+        <span class="pill">Latin PDF text support</span>
       </div>
     </section>
 
@@ -422,6 +423,11 @@
           <div class="icon">✓</div>
           <h3>Fail-safe editing</h3>
           <p>When exact font, glyph, permission, or object replacement cannot be proven safe, Kept blocks that edit instead of silently corrupting the PDF.</p>
+        </article>
+        <article class="card">
+          <div class="icon">Aa</div>
+          <h3>PDF text language support</h3>
+          <p>Native PDF text edits currently focus on Latin-based languages and simple Unicode characters when the original PDF font can safely write them. Complex shaping scripts are planned for a future update.</p>
         </article>
         <article class="card">
           <div class="icon">S</div>
@@ -502,6 +508,22 @@
         <div class="faq-item">
           <h3>Why can I edit only the first 80 pages?</h3>
           <p>PDF Studio bounds very large editing sessions to the first 80 pages so interaction remains responsive. The editor shows loaded and total page counts, and preserves the managed original. Split the PDF when you need to work on later pages.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Which app languages does Kept support?</h3>
+          <p>Kept's interface is localized in English, Turkish, German, Spanish, French, Japanese, and Brazilian Portuguese.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Which PDF text languages are supported today?</h3>
+          <p>PDF Studio currently supports native text replacement best for Latin-based languages such as English, Turkish, German, French, Spanish, and Portuguese, plus simple Unicode characters that the original PDF font can safely write.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Why are some Arabic, Indic, Thai, Hebrew, or Korean text edits blocked?</h3>
+          <p>Those writing systems can require complex shaping, direction, joining, or mark positioning. Kept is preparing a future shaping-engine update for broader language coverage. Until then, unsafe replacements are blocked instead of risking broken PDF text.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Why does PDF Studio say a text object is protected?</h3>
+          <p>Some PDFs do not expose enough safe font, Unicode, clipping, transparency, or layout evidence for direct editing. Kept keeps the original object intact and reports the limit rather than creating a fake or destructive edit.</p>
         </div>
       </div>
     </section>
