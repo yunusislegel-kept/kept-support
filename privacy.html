@@ -293,7 +293,7 @@
         history to a server. The only personal data we ever see is what you choose to
         send us by email when you contact support.
       </p>
-      <div class="notice"><strong>Last updated:</strong> 20 May 2026</div>
+      <div class="notice"><strong>Last updated:</strong> 1 July 2026</div>
       <div class="nav-actions">
         <a class="button primary" href="mailto:keptsupport@gmail.com">Contact Support</a>
         <a class="button" href="./index.html">Back to Support</a>
@@ -307,7 +307,7 @@
         <li><a href="#s2">2. What the app collects</a></li>
         <li><a href="#s3">3. Local clipboard history</a></li>
         <li><a href="#s4">4. Network, analytics, ads, tracking</a></li>
-        <li><a href="#s5">5. Supported content types</a></li>
+        <li><a href="#s5">5. Supported content types and PDF processing</a></li>
         <li><a href="#s6">6. Sensitive content protection</a></li>
         <li><a href="#s7">7. Protected sources and rules</a></li>
         <li><a href="#s8">8. Backups, exports, imports</a></li>
@@ -351,7 +351,9 @@
       <p>
         Kept is a local-first macOS clipboard manager. Clipboard items, boards, searches,
         filters, capture rules, settings, pinned items, local snapshots, and backups are
-        designed to remain on your Mac.
+        designed to remain on your Mac. Managed PDFs, images, GIFs, supported videos,
+        editor working files, thumbnails, and exports also remain in Kept's local sandbox
+        unless you explicitly export, paste, or share them.
       </p>
       <div class="grid">
         <article class="card">
@@ -389,7 +391,7 @@
     </section>
 
     <section class="section" id="s5">
-      <h2>5. Supported content types</h2>
+      <h2>5. Supported content types and PDF processing</h2>
       <p>Depending on how you use the app, Kept may locally save supported clipboard content such as:</p>
       <ul>
         <li>Text and links</li>
@@ -403,11 +405,33 @@
         <li>Files or file references supported by macOS clipboard behavior</li>
       </ul>
       <p>
-        Kept is designed for clipboard productivity. Large audio and video content may be
-        excluded or treated differently to keep the clipboard library fast and lightweight.
-        PDF capture is capped at 20&nbsp;MB and GIF capture at 12&nbsp;MB; items above the
-        cap are silently skipped.
+        Kept uses local safety caps to avoid exhausting memory or disk space: PDFs up to
+        250&nbsp;MB, images up to 40&nbsp;MB, animated GIFs up to 12&nbsp;MB, and supported
+        videos up to 500&nbsp;MB. A file above its cap must be reduced or split before it can
+        be managed by Kept.
       </p>
+      <div class="grid">
+        <article class="card">
+          <div class="icon">⌘</div>
+          <h3>PDF processing stays on the Mac</h3>
+          <p>Kept copies a captured PDF into its sandbox and processes pages, text, images, object edits, thumbnails, saves, and exports on device. PDF content is not uploaded to a Kept or third-party processing server.</p>
+        </article>
+        <article class="card">
+          <div class="icon">80</div>
+          <h3>Bounded large-document sessions</h3>
+          <p>For PDFs above 80 pages, PDF Studio loads the first 80 pages in one editor session and displays both loaded and total page counts. The managed original is preserved.</p>
+        </article>
+        <article class="card">
+          <div class="icon">!</div>
+          <h3>Files that cannot be opened safely</h3>
+          <p>Empty or damaged PDFs, missing managed copies, documents macOS cannot decode, and some password- or permission-protected files are refused instead of being rewritten unsafely.</p>
+        </article>
+        <article class="card">
+          <div class="icon">✓</div>
+          <h3>Unsupported edits fail closed</h3>
+          <p>Complex structures, restricted permissions, or fonts and glyphs that cannot be replaced safely may limit editing. Kept blocks the unsafe change and retains the original PDF layer.</p>
+        </article>
+      </div>
     </section>
 
     <section class="section" id="s6">
@@ -461,7 +485,10 @@
         You can clear clipboard history, remove saved items, delete local backups, and
         reset saved data from inside the app where available. You may also remove Kept's
         local macOS application container (<code>~/Library/Containers/com.yunusislegel.kept</code>)
-        to delete all local Kept data from your Mac.
+        to delete the local library. Kept also stores a random Support ID and free editor
+        counters in Keychain; these records contain no clipboard or PDF content. To remove
+        them, use Keychain Access to delete <code>com.kept.support</code> and
+        <code>com.yunusislegel.kept.editUsage.v1</code>.
       </p>
     </section>
 
@@ -470,8 +497,10 @@
       <p>
         Kept runs inside the macOS App Sandbox with the hardened runtime. The app does
         not request access to location, camera, microphone, contacts, calendar, or
-        network services. Anything saved in Kept comes from your clipboard actions and
-        from macOS clipboard behavior.
+        direct network services. Anything saved in Kept comes from your clipboard actions
+        and from macOS clipboard behavior. Opening this support site or composing an email
+        is an explicit user action handled by your browser or mail app. Apple separately
+        handles App Store purchases.
       </p>
     </section>
 
@@ -524,7 +553,9 @@
         analytics, advertising, tracking, or cloud-processing services. The Kept support
         site is hosted on GitHub Pages and uses Gmail (Google) for inbound support email
         — these providers act only as infrastructure and do not receive clipboard data
-        from the app. The App Store handles purchases and subscriptions according to
+        from the app. Support emails include a locally generated Support ID plus app version,
+        macOS version, and language when you choose to compose the message; no clipboard or
+        PDF file is attached automatically. The App Store handles purchases according to
         Apple's own privacy policy.
       </p>
     </section>

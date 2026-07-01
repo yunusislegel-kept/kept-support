@@ -317,6 +317,7 @@
       </a>
       <div class="topnav">
         <a href="#features">Features</a>
+        <a href="#pdf-studio">PDF Studio</a>
         <a href="#faq">FAQ</a>
         <a href="./privacy.html">Privacy</a>
         <a class="cta" href="mailto:keptsupport@gmail.com">Contact</a>
@@ -393,6 +394,48 @@
       </div>
     </section>
 
+    <section class="section" id="pdf-studio">
+      <h2>PDF Studio: local processing with explicit safety limits</h2>
+      <p>
+        Kept copies a captured PDF into its macOS sandbox and processes pages, text,
+        images, edits, thumbnails, and exports on the Mac. PDF content is not uploaded
+        to a Kept server. A document leaves Kept only when you explicitly export, paste,
+        or share it.
+      </p>
+      <div class="grid">
+        <article class="card">
+          <div class="icon">250</div>
+          <h3>250 MB file limit</h3>
+          <p>PDFs over 250 MB are refused before editing. Split or compress a larger document, then copy or import it again.</p>
+        </article>
+        <article class="card">
+          <div class="icon">80</div>
+          <h3>Large-document session budget</h3>
+          <p>For very large PDFs, one editor session loads the first 80 pages and shows both loaded and total page counts. The managed original is preserved.</p>
+        </article>
+        <article class="card">
+          <div class="icon">!</div>
+          <h3>Why a PDF may not open</h3>
+          <p>Empty or damaged files, missing managed copies, files macOS cannot decode, and some password- or permission-protected documents cannot be edited safely.</p>
+        </article>
+        <article class="card">
+          <div class="icon">✓</div>
+          <h3>Fail-safe editing</h3>
+          <p>When exact font, glyph, permission, or object replacement cannot be proven safe, Kept blocks that edit instead of silently corrupting the PDF.</p>
+        </article>
+        <article class="card">
+          <div class="icon">S</div>
+          <h3>Save</h3>
+          <p>Save updates the local PDF record managed by Kept. It does not upload the document or overwrite a source file outside Kept's sandbox.</p>
+        </article>
+        <article class="card">
+          <div class="icon">+</div>
+          <h3>Save as New Copy</h3>
+          <p>Save as New Copy keeps the existing Kept record and creates another local item so you can retain both versions.</p>
+        </article>
+      </div>
+    </section>
+
     <section class="section">
       <h2>Privacy by design</h2>
       <div class="grid">
@@ -409,7 +452,7 @@
         <article class="card">
           <div class="icon">▣</div>
           <h3>Local Library storage</h3>
-          <p>Kept stores app data inside the user's macOS Library container. Removing the container removes the app's saved local data.</p>
+          <p>Kept stores its library inside the user's macOS container. Small Keychain records hold an anonymous Support ID and free editor counters; they contain no clipboard or PDF content.</p>
         </article>
         <article class="card">
           <div class="icon">⇧</div>
@@ -446,11 +489,19 @@
         </div>
         <div class="faq-item">
           <h3>Can I delete my Kept data?</h3>
-          <p>Yes. You can clear history from inside the app, and you can remove Kept's local application container from your Mac to delete all local Kept data.</p>
+          <p>Yes. Clear history in the app and remove Kept's local application container to delete the library. To remove the small local identifiers and editor counters too, use Keychain Access to delete <code>com.kept.support</code> and <code>com.yunusislegel.kept.editUsage.v1</code>.</p>
         </div>
         <div class="faq-item">
           <h3>Does Kept upload clipboard content?</h3>
-          <p>No. Kept is designed so clipboard capture, search, rules, and backups stay on your Mac.</p>
+          <p>No. Clipboard capture, PDF and media editing, search, rules, and backups stay on your Mac. Kept never attaches clipboard files to a support email automatically.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Why didn't my PDF open?</h3>
+          <p>PDF Studio refuses files over 250 MB, missing managed copies, empty or damaged PDFs, and documents macOS cannot read. Password or permission protection can also block safe editing. Copy or import the file again, confirm that it opens in Preview, or split and compress a very large document.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Why can I edit only the first 80 pages?</h3>
+          <p>PDF Studio bounds very large editing sessions to the first 80 pages so interaction remains responsive. The editor shows loaded and total page counts, and preserves the managed original. Split the PDF when you need to work on later pages.</p>
         </div>
       </div>
     </section>
