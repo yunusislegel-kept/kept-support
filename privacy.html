@@ -290,10 +290,11 @@
       <p class="lead">
         This Privacy Policy explains how Kept handles your data. The short version:
         the Kept app does not create accounts, run analytics, show ads, or sync clipboard
-        history to a server. The only personal data we ever see is what you choose to
-        send us by email when you contact support.
+        history to a server. The Kept developer receives personal data only when you choose
+        to send a support email. Visiting this static support site also involves the normal
+        technical processing needed to deliver a web page by GitHub Pages.
       </p>
-      <div class="notice"><strong>Last updated:</strong> 1 July 2026</div>
+      <div class="notice"><strong>Last updated:</strong> 9 August 2026</div>
       <div class="nav-actions">
         <a class="button primary" href="mailto:keptsupport@gmail.com">Contact Support</a>
         <a class="button" href="./index.html">Back to Support</a>
@@ -325,9 +326,9 @@
     <section class="section" id="s1">
       <h2>1. Who we are</h2>
       <p>
-        "Kept" refers to the macOS clipboard manager app and the team that develops it
+        "Kept" refers to the macOS clipboard manager app and its developer
         ("we", "us", "our"). This Privacy Policy applies to the Kept app for macOS and
-        the Kept support pages hosted on this site. You can reach us at
+        the Kept support pages hosted on this site. For privacy or support questions, reach us at
         <a href="mailto:keptsupport@gmail.com">keptsupport@gmail.com</a>.
       </p>
     </section>
@@ -473,9 +474,12 @@
     <section class="section" id="s8">
       <h2>8. Backups, exports, imports</h2>
       <p>
-        Kept does not automatically export or synchronize your clipboard history. Exports
-        and backups are manual actions controlled by you. If you choose to export Kept
-        data, the exported file is your responsibility and should be stored securely.
+        Kept does not automatically export or synchronize your clipboard history. While
+        Kept is running, it can create one local snapshot per day and removes snapshots
+        older than 30 days. Those snapshots remain in Kept's local container; they are
+        never uploaded. Exports, imports, restores, pastes, and shares are user-initiated
+        actions. Restoring or importing a backup replaces the current local library after
+        confirmation, so create a fresh snapshot first if you need a fallback.
       </p>
     </section>
 
@@ -490,6 +494,11 @@
         them, use Keychain Access to delete <code>com.kept.support</code> and
         <code>com.yunusislegel.kept.editUsage.v1</code>.
       </p>
+      <p>
+        Deleting Kept's local library does not delete a file you explicitly exported,
+        pasted into another app, shared, or moved outside Kept. Manage those copies in
+        their destination app or folder.
+      </p>
     </section>
 
     <section class="section" id="s10">
@@ -497,11 +506,24 @@
       <p>
         Kept runs inside the macOS App Sandbox with the hardened runtime. The app does
         not request access to location, camera, microphone, contacts, calendar, or
-        direct network services. Anything saved in Kept comes from your clipboard actions
-        and from macOS clipboard behavior. Opening this support site or composing an email
-        is an explicit user action handled by your browser or mail app. Apple separately
-        handles App Store purchases.
+        direct network services. It can access files you explicitly select and the
+        Downloads folder as needed to import, export, or manage files you choose.
+        Anything saved in Kept comes from your clipboard actions and from macOS clipboard
+        behavior. Opening this support site or composing an email is an explicit user
+        action handled by your browser or mail app. Apple separately handles App Store purchases.
       </p>
+      <div class="grid">
+        <article class="card">
+          <div class="icon">⌘V</div>
+          <h3>Optional Accessibility permission for direct paste</h3>
+          <p>Kept asks macOS for Accessibility permission only when you choose direct paste from the quick panel. It uses that permission to send the paste shortcut to the selected target app. If you do not allow it, you can still copy an item from Kept and paste it yourself.</p>
+        </article>
+        <article class="card">
+          <div class="icon">⌨</div>
+          <h3>No keystroke or screen recording</h3>
+          <p>Kept does not record typed content, capture your screen, or read your camera or microphone. Its global shortcut handling checks only the shortcut needed to open Kept; no typed content is stored as a result.</p>
+        </article>
+      </div>
     </section>
 
     <section class="section" id="s11">
@@ -550,13 +572,17 @@
       <h2>12. Third-party services</h2>
       <p>
         The Kept app does not send clipboard history or personal data to third-party
-        analytics, advertising, tracking, or cloud-processing services. The Kept support
-        site is hosted on GitHub Pages and uses Gmail (Google) for inbound support email
-        — these providers act only as infrastructure and do not receive clipboard data
-        from the app. Support emails include a locally generated Support ID plus app version,
-        macOS version, and language when you choose to compose the message; no clipboard or
-        PDF file is attached automatically. The App Store handles purchases according to
-        Apple's own privacy policy.
+        analytics, advertising, tracking, or cloud-processing services. This static support
+        site contains no Kept analytics, advertising pixels, or contact form. GitHub Pages
+        hosts the site and may process technical request data such as IP address, browser,
+        and standard server logs under <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement">GitHub's Privacy Statement</a>.
+        Support email is received in Gmail and processed by Google under
+        <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.
+        These providers do not receive clipboard or PDF content from the Kept app.
+        Support emails include a locally generated Support ID plus app version, macOS version,
+        and language when you choose to compose the message; no clipboard or PDF file is
+        attached automatically. App Store purchases are processed by Apple under
+        <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.
       </p>
     </section>
 
@@ -614,6 +640,7 @@
       <br />
       <a href="./index.html">Support</a> ·
       <a href="./privacy.html">Privacy Policy</a> ·
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple Standard EULA</a> ·
       <a href="mailto:keptsupport@gmail.com">Contact</a>
     </footer>
   </main>

@@ -390,7 +390,7 @@
         <article class="card">
           <div class="icon">↺</div>
           <h3>Local snapshots</h3>
-          <p>Kept can create local snapshots you can restore from. Backups stay on your Mac unless you choose to export them yourself.</p>
+          <p>While Kept is in use, it can create one local snapshot per day and removes snapshots older than 30 days. Backups stay on your Mac unless you export them yourself.</p>
         </article>
       </div>
     </section>
@@ -432,7 +432,7 @@
         <article class="card">
           <div class="icon">S</div>
           <h3>Save</h3>
-          <p>Save updates the local PDF record managed by Kept. It does not upload the document or overwrite a source file outside Kept's sandbox.</p>
+          <p>Save updates the local PDF record managed by Kept. It does not upload the document or overwrite a source file outside Kept's sandbox. Export, paste, and share remain explicit actions.</p>
         </article>
         <article class="card">
           <div class="icon">+</div>
@@ -462,8 +462,8 @@
         </article>
         <article class="card">
           <div class="icon">⇧</div>
-          <h3>Manual export only</h3>
-          <p>Kept does not automatically sync history. Exports and backups are controlled by the user and intended for moving data between Macs manually.</p>
+          <h3>No cloud sync</h3>
+          <p>Kept does not automatically sync history. Local snapshots remain in its container; exports are user-controlled and intended for moving data between Macs manually.</p>
         </article>
         <article class="card">
           <div class="icon">✋</div>
@@ -474,6 +474,11 @@
           <div class="icon">◇</div>
           <h3>Sandboxed workspace</h3>
           <p>Kept runs inside the macOS App Sandbox with the hardened runtime — no location, contacts, calendar, camera, microphone, or network entitlements.</p>
+        </article>
+        <article class="card">
+          <div class="icon">⌘V</div>
+          <h3>Optional direct-paste permission</h3>
+          <p>When you choose direct paste from the quick panel, macOS may ask for Accessibility permission so Kept can send the paste shortcut to the selected app. You can deny it and paste manually instead.</p>
         </article>
       </div>
     </section>
@@ -490,6 +495,10 @@
           <p>No. Kept has no automatic cloud synchronization. You can manually export and import your history when needed.</p>
         </div>
         <div class="faq-item">
+          <h3>Does Kept make automatic backups?</h3>
+          <p>While Kept is running, it can create one local snapshot per day and removes snapshots older than 30 days. Snapshots stay in Kept's local container and are never uploaded.</p>
+        </div>
+        <div class="faq-item">
           <h3>Where is my history stored?</h3>
           <p>Your Kept history and settings are stored locally inside your Mac's application container (<code>~/Library/Containers/com.yunusislegel.kept</code>).</p>
         </div>
@@ -500,6 +509,10 @@
         <div class="faq-item">
           <h3>Does Kept upload clipboard content?</h3>
           <p>No. Clipboard capture, PDF and media editing, search, rules, and backups stay on your Mac. Kept never attaches clipboard files to a support email automatically.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Why does Kept ask for Accessibility permission?</h3>
+          <p>Only direct paste from the quick panel needs this optional macOS permission. It lets Kept send the paste shortcut to the app you selected. If you do not grant it, copying from Kept and pasting yourself still works.</p>
         </div>
         <div class="faq-item">
           <h3>Why didn't my PDF open?</h3>
@@ -546,6 +559,7 @@
       <br />
       <a href="./index.html">Support</a> ·
       <a href="./privacy.html">Privacy Policy</a> ·
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple Standard EULA</a> ·
       <a href="mailto:keptsupport@gmail.com">Contact</a>
     </footer>
   </main>
