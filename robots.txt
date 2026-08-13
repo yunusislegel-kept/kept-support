@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yunusislegel-kept.github.io/kept-support/sitemap.xml
