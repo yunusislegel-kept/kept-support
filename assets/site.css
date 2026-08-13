@@ -406,7 +406,7 @@ h1 em { color: var(--mint); font-style: normal; font-weight: 700; }
 .flow-machine.is-edited .machine-face { animation: machine-finish .48s ease both; }
 @keyframes invite-machine { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
 @keyframes machine-finish { 50% { transform: translateY(-6px); box-shadow: 0 0 40px rgba(96,201,140,.2); } }
-.flow-stage[data-flow-step="3"] .depth-one { transform: translateZ(18px) translateY(54px) scale(.82); opacity: .92; background: rgba(169,232,193,.75); }
+.flow-stage[data-flow-step="3"] .depth-one { transform: translateZ(-18px) translateY(14px) scale(.94); opacity: .68; background: rgba(169,232,193,.38); }
 .flow-stage[data-flow-step="1"] .machine-content img { animation: item-arrive .48s cubic-bezier(.2,.8,.2,1) both; }
 .flow-stage[data-flow-step="2"] .machine-content strong { color: var(--mint-light); }
 .flow-stage[data-flow-step="3"] .machine-face::after { content: "✓"; position: absolute; right: 14px; top: 58px; width: 30px; height: 30px; display: grid; place-items: center; color: #0b4d2e; border-radius: 50%; background: var(--mint-light); box-shadow: 0 0 26px rgba(156,228,184,.42); animation: check-pop .42s ease both; }
