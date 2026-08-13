@@ -25,7 +25,7 @@ KEPT_SITE_URL="https://your-domain.example" node scripts/build-site.mjs
 
 The homepage uses:
 
-- `assets/media/kept-demo.mp4` — 16:9 H.264 product film, user-controlled playback (about 5.8 MB)
+- `assets/media/kept-demo.mp4` — 16:9 H.264 product film, user-controlled playback (about 17 MB)
 - `assets/media/kept-demo-poster.jpg` — 16:9 poster image
 - `assets/media/kept-demo-en.vtt` — English accessibility captions
 - `assets/kept-social-preview.png` — 1200 × 630 social preview
