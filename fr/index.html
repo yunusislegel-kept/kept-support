@@ -6,7 +6,7 @@
   <title>Kept — Modifiez ce que vous copiez sur Mac</title>
   <meta name="description" content="Un gestionnaire de presse-papiers local pour Mac. Modifiez textes, captures d’écran, images, vidéos et PDF compatibles avant de les coller ou partager.">
   <meta name="robots" content="index,follow,max-image-preview:large">
-  <meta name="theme-color" content="#08110d">
+  <meta name="theme-color" content="#eef5ef">
   <meta name="apple-itunes-app" content="app-id=6772479708">
   <link rel="canonical" href="https://yunusislegel-kept.github.io/kept-support/fr/">
   <link rel="icon" href="../assets/KeptLogo.png">
@@ -100,11 +100,23 @@
                data-picked="Sélectionné"
                data-edited="Modifié"
                data-complete="Prêt à coller"
-               data-idle="En attente">
+               data-idle="En attente"
+               data-step-choose="Choisir"
+               data-step-edit="Modifier"
+               data-step-finish="Coller">
+            <div class="glass-refraction" aria-hidden="true"></div>
             <div class="flow-topline">
               <span>Flux Kept</span>
-              <span data-flow-count>01 / 03</span>
+              <span data-flow-count>00 / 03</span>
             </div>
+
+            <ol class="flow-progress" aria-label="Progression du flux Kept">
+              <li class="is-active" data-flow-progress="1"><span>1</span><strong>Choisir</strong></li>
+              <li data-flow-progress="2"><span>2</span><strong>Modifier</strong></li>
+              <li data-flow-progress="3"><span>3</span><strong>Coller</strong></li>
+            </ol>
+
+            <p class="flow-directive" data-flow-directive aria-live="polite">Choisissez une carte ou faites-la glisser dans Kept.</p>
 
             <div class="source-orbit" aria-label="Choisissez un contenu copié">
               <button class="source-card source-card-text" type="button" draggable="true" data-flow-source="text" aria-pressed="false">
@@ -125,7 +137,7 @@
               </button>
             </div>
 
-            <div class="flow-machine" data-flow-dropzone tabindex="0" role="button" aria-label="Déposer le contenu sélectionné dans Kept">
+            <div class="flow-machine" data-flow-dropzone aria-label="Déposer le contenu sélectionné dans Kept">
               <div class="machine-depth depth-three"></div>
               <div class="machine-depth depth-two"></div>
               <div class="machine-depth depth-one"></div>
@@ -138,7 +150,7 @@
                 <div class="machine-content">
                   <img src="../assets/KeptLogo.png" width="72" height="72" alt="">
                   <div>
-                    <strong data-flow-title>Capture d’écran</strong>
+                  <strong data-flow-title>Choisir</strong>
                     <span data-flow-description>Choisissez une carte ou faites-la glisser dans Kept.</span>
                   </div>
                 </div>
@@ -150,7 +162,7 @@
             </div>
 
             <div class="flow-caption">
-              <p data-flow-message aria-live="polite">Choisissez une carte ou faites-la glisser dans Kept.</p>
+              <p data-flow-message aria-live="polite">En attente</p>
               <button type="button" data-flow-reset>Recommencer</button>
             </div>
           </div>

@@ -74,30 +74,57 @@
   const message = document.querySelector("[data-flow-message]");
   const status = document.querySelector("[data-flow-status]");
   const count = document.querySelector("[data-flow-count]");
+  const directive = document.querySelector("[data-flow-directive]");
+  const progressItems = [...document.querySelectorAll("[data-flow-progress]")];
   const labels = Object.fromEntries(sources.map((source) => [source.dataset.flowSource, source.lastElementChild?.textContent || ""]));
-  let selected = "image";
-  let step = 1;
+  const sourceOrigins = new Map(sources.map((source) => [source, { transform: source.style.transform }]));
+  let selected = "";
+  let step = 0;
 
   function setFlowState(nextStep, sourceType = selected) {
     if (!stage || !machine) return;
-    selected = sourceType;
-    step = nextStep;
+    selected = sourceType || selected;
+    step = Math.max(0, Math.min(3, nextStep));
     sources.forEach((source) => {
-      const isSelected = source.dataset.flowSource === selected;
+      const isSelected = Boolean(selected) && source.dataset.flowSource === selected;
       source.classList.toggle("is-selected", isSelected);
       source.setAttribute("aria-pressed", String(isSelected));
     });
     machine.classList.toggle("is-edited", step === 3);
-    if (title) title.textContent = labels[selected];
+    stage.dataset.flowStep = String(step);
+    if (title) title.textContent = selected ? labels[selected] : stage.dataset.stepChoose;
     if (count) count.textContent = `0${step} / 03`;
-    if (status) status.textContent = step === 1 ? stage.dataset.idle : step === 2 ? stage.dataset.picked : stage.dataset.complete;
-    if (description) description.textContent = step === 3 ? stage.dataset.complete : step === 2 ? stage.dataset.edited : message?.textContent || "";
-    if (message) message.textContent = step === 1 ? stage.dataset.idle : step === 2 ? stage.dataset.edited : stage.dataset.complete;
-    if (pasteButton) pasteButton.disabled = step < 2;
+    if (status) status.textContent = step === 0 ? stage.dataset.idle : step === 1 ? stage.dataset.picked : step === 2 ? stage.dataset.edited : stage.dataset.complete;
+    if (description) description.textContent = step === 0 ? stage.dataset.stepChoose : step === 1 ? stage.dataset.picked : step === 2 ? stage.dataset.edited : stage.dataset.complete;
+    if (directive) directive.textContent = step === 0 ? stage.dataset.stepChoose : step === 1 ? stage.dataset.stepEdit : step === 2 ? stage.dataset.stepFinish : stage.dataset.complete;
+    if (message) message.textContent = step === 0 ? stage.dataset.idle : step === 1 ? stage.dataset.picked : step === 2 ? stage.dataset.edited : stage.dataset.complete;
+    if (editButton) editButton.disabled = step !== 1;
+    if (pasteButton) pasteButton.disabled = step !== 2;
+    progressItems.forEach((item, index) => {
+      const progressStep = index + 1;
+      item.classList.toggle("is-active", progressStep === Math.min(step + 1, 3));
+      item.classList.toggle("is-complete", progressStep <= step);
+      item.setAttribute("aria-current", progressStep === Math.min(step + 1, 3) && step < 3 ? "step" : "false");
+    });
   }
 
   sources.forEach((source) => {
-    source.addEventListener("click", () => setFlowState(2, source.dataset.flowSource));
+    source.addEventListener("click", () => {
+      setFlowState(1, source.dataset.flowSource);
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && typeof source.animate === "function") {
+        const sourceBounds = source.getBoundingClientRect();
+        const machineBounds = machine?.getBoundingClientRect();
+        if (machineBounds) {
+          const deltaX = machineBounds.left + machineBounds.width / 2 - (sourceBounds.left + sourceBounds.width / 2);
+          const deltaY = machineBounds.top + machineBounds.height / 2 - (sourceBounds.top + sourceBounds.height / 2);
+          source.animate([
+            { transform: getComputedStyle(source).transform, opacity: 1 },
+            { transform: `translate(${deltaX * .56}px, ${deltaY * .56}px) scale(.74)`, opacity: .28 },
+            { transform: sourceOrigins.get(source)?.transform || "", opacity: 1 }
+          ], { duration: 520, easing: "cubic-bezier(.2,.75,.2,1)" });
+        }
+      }
+    });
     source.addEventListener("dragstart", (event) => {
       event.dataTransfer?.setData("text/plain", source.dataset.flowSource || "image");
       if (event.dataTransfer) event.dataTransfer.effectAllowed = "copy";
@@ -112,36 +139,36 @@
     ["dragleave", "drop"].forEach((eventName) => machine.addEventListener(eventName, () => machine.classList.remove("is-dragover")));
     machine.addEventListener("drop", (event) => {
       event.preventDefault();
-      setFlowState(2, event.dataTransfer?.getData("text/plain") || selected);
-    });
-    machine.addEventListener("click", () => setFlowState(Math.min(step + 1, 3), selected));
-    machine.addEventListener("keydown", (event) => {
-      if (event.key !== "Enter" && event.key !== " ") return;
-      event.preventDefault();
-      setFlowState(Math.min(step + 1, 3), selected);
+      setFlowState(1, event.dataTransfer?.getData("text/plain") || selected);
     });
   }
 
   editButton?.addEventListener("click", (event) => {
     event.stopPropagation();
-    setFlowState(3, selected);
+    if (step === 1) setFlowState(2, selected);
   });
   pasteButton?.addEventListener("click", (event) => {
     event.stopPropagation();
-    setFlowState(3, selected);
+    if (step === 2) setFlowState(3, selected);
   });
-  resetButton?.addEventListener("click", () => setFlowState(1, "image"));
+  resetButton?.addEventListener("click", () => setFlowState(0, ""));
+
+  setFlowState(0, "");
 
   if (stage && !window.matchMedia("(prefers-reduced-motion: reduce)").matches && window.matchMedia("(pointer: fine)").matches) {
     stage.addEventListener("pointermove", (event) => {
       const bounds = stage.getBoundingClientRect();
       const x = (event.clientX - bounds.left) / bounds.width - 0.5;
       const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+      stage.style.setProperty("--glass-x", `${(x + 0.5) * 100}%`);
+      stage.style.setProperty("--glass-y", `${(y + 0.5) * 100}%`);
       stage.style.transform = `rotateY(${x * 5 - 2}deg) rotateX(${y * -4 + 1}deg)`;
       stage.classList.add("is-hovering");
     });
     stage.addEventListener("pointerleave", () => {
       stage.style.removeProperty("transform");
+      stage.style.removeProperty("--glass-x");
+      stage.style.removeProperty("--glass-y");
       stage.classList.remove("is-hovering");
     });
   }

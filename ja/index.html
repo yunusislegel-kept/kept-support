@@ -6,7 +6,7 @@
   <title>Kept — Macでコピーしたものを、その場で編集</title>
   <meta name="description" content="Mac向けのローカル優先クリップボード管理アプリ。コピーしたテキスト、スクリーンショット、画像、動画、対応PDFを貼り付けや共有の前に編集できます。">
   <meta name="robots" content="index,follow,max-image-preview:large">
-  <meta name="theme-color" content="#08110d">
+  <meta name="theme-color" content="#eef5ef">
   <meta name="apple-itunes-app" content="app-id=6772479708">
   <link rel="canonical" href="https://yunusislegel-kept.github.io/kept-support/ja/">
   <link rel="icon" href="../assets/KeptLogo.png">
@@ -100,11 +100,23 @@
                data-picked="選択済み"
                data-edited="編集済み"
                data-complete="貼り付け準備完了"
-               data-idle="待機中">
+               data-idle="待機中"
+               data-step-choose="選択"
+               data-step-edit="編集"
+               data-step-finish="貼り付け">
+            <div class="glass-refraction" aria-hidden="true"></div>
             <div class="flow-topline">
               <span>Kept Flow</span>
-              <span data-flow-count>01 / 03</span>
+              <span data-flow-count>00 / 03</span>
             </div>
+
+            <ol class="flow-progress" aria-label="Kept Flowの進行状況">
+              <li class="is-active" data-flow-progress="1"><span>1</span><strong>選択</strong></li>
+              <li data-flow-progress="2"><span>2</span><strong>編集</strong></li>
+              <li data-flow-progress="3"><span>3</span><strong>貼り付け</strong></li>
+            </ol>
+
+            <p class="flow-directive" data-flow-directive aria-live="polite">カードを選ぶか、Keptへドラッグしてください。</p>
 
             <div class="source-orbit" aria-label="コピーした項目を選択">
               <button class="source-card source-card-text" type="button" draggable="true" data-flow-source="text" aria-pressed="false">
@@ -125,7 +137,7 @@
               </button>
             </div>
 
-            <div class="flow-machine" data-flow-dropzone tabindex="0" role="button" aria-label="選択した項目をKeptに入れる">
+            <div class="flow-machine" data-flow-dropzone aria-label="選択した項目をKeptに入れる">
               <div class="machine-depth depth-three"></div>
               <div class="machine-depth depth-two"></div>
               <div class="machine-depth depth-one"></div>
@@ -138,7 +150,7 @@
                 <div class="machine-content">
                   <img src="../assets/KeptLogo.png" width="72" height="72" alt="">
                   <div>
-                    <strong data-flow-title>スクリーンショット</strong>
+                  <strong data-flow-title>選択</strong>
                     <span data-flow-description>カードを選ぶか、Keptへドラッグしてください。</span>
                   </div>
                 </div>
@@ -150,7 +162,7 @@
             </div>
 
             <div class="flow-caption">
-              <p data-flow-message aria-live="polite">カードを選ぶか、Keptへドラッグしてください。</p>
+              <p data-flow-message aria-live="polite">待機中</p>
               <button type="button" data-flow-reset>最初から試す</button>
             </div>
           </div>

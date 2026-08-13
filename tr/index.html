@@ -6,7 +6,7 @@
   <title>Kept — Mac&#039;te Kopyaladığını Düzenle</title>
   <meta name="description" content="Mac için yerel öncelikli pano yöneticisi. Kopyalanan metinleri, ekran görüntülerini, görselleri, videoları ve desteklenen PDF&#039;leri yapıştırmadan veya paylaşmadan önce düzenle.">
   <meta name="robots" content="index,follow,max-image-preview:large">
-  <meta name="theme-color" content="#08110d">
+  <meta name="theme-color" content="#eef5ef">
   <meta name="apple-itunes-app" content="app-id=6772479708">
   <link rel="canonical" href="https://yunusislegel-kept.github.io/kept-support/tr/">
   <link rel="icon" href="../assets/KeptLogo.png">
@@ -100,11 +100,23 @@
                data-picked="Seçildi"
                data-edited="Düzenlendi"
                data-complete="Yapıştırmaya hazır"
-               data-idle="Bekliyor">
+               data-idle="Bekliyor"
+               data-step-choose="Seç"
+               data-step-edit="Düzenle"
+               data-step-finish="Yapıştır">
+            <div class="glass-refraction" aria-hidden="true"></div>
             <div class="flow-topline">
               <span>Kept Akışı</span>
-              <span data-flow-count>01 / 03</span>
+              <span data-flow-count>00 / 03</span>
             </div>
+
+            <ol class="flow-progress" aria-label="Kept Akışı ilerlemesi">
+              <li class="is-active" data-flow-progress="1"><span>1</span><strong>Seç</strong></li>
+              <li data-flow-progress="2"><span>2</span><strong>Düzenle</strong></li>
+              <li data-flow-progress="3"><span>3</span><strong>Yapıştır</strong></li>
+            </ol>
+
+            <p class="flow-directive" data-flow-directive aria-live="polite">Bir kart seç veya Kept&#039;in içine sürükle.</p>
 
             <div class="source-orbit" aria-label="Kopyaladığın bir içeriği seç">
               <button class="source-card source-card-text" type="button" draggable="true" data-flow-source="text" aria-pressed="false">
@@ -125,7 +137,7 @@
               </button>
             </div>
 
-            <div class="flow-machine" data-flow-dropzone tabindex="0" role="button" aria-label="Seçili içeriği Kept&#039;e yerleştir">
+            <div class="flow-machine" data-flow-dropzone aria-label="Seçili içeriği Kept&#039;e yerleştir">
               <div class="machine-depth depth-three"></div>
               <div class="machine-depth depth-two"></div>
               <div class="machine-depth depth-one"></div>
@@ -138,7 +150,7 @@
                 <div class="machine-content">
                   <img src="../assets/KeptLogo.png" width="72" height="72" alt="">
                   <div>
-                    <strong data-flow-title>Ekran görüntüsü</strong>
+                  <strong data-flow-title>Seç</strong>
                     <span data-flow-description>Bir kart seç veya Kept&#039;in içine sürükle.</span>
                   </div>
                 </div>
@@ -150,7 +162,7 @@
             </div>
 
             <div class="flow-caption">
-              <p data-flow-message aria-live="polite">Bir kart seç veya Kept&#039;in içine sürükle.</p>
+              <p data-flow-message aria-live="polite">Bekliyor</p>
               <button type="button" data-flow-reset>Baştan başla</button>
             </div>
           </div>

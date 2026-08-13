@@ -6,7 +6,7 @@
   <title>Kept — Edit What You Copy on Mac</title>
   <meta name="description" content="A local-first clipboard manager for Mac. Edit copied text, screenshots, images, videos, and supported PDFs before you paste or share.">
   <meta name="robots" content="index,follow,max-image-preview:large">
-  <meta name="theme-color" content="#08110d">
+  <meta name="theme-color" content="#eef5ef">
   <meta name="apple-itunes-app" content="app-id=6772479708">
   <link rel="canonical" href="https://yunusislegel-kept.github.io/kept-support/">
   <link rel="icon" href="./assets/KeptLogo.png">
@@ -100,11 +100,23 @@
                data-picked="Selected"
                data-edited="Edited"
                data-complete="Ready to paste"
-               data-idle="Waiting">
+               data-idle="Waiting"
+               data-step-choose="Choose"
+               data-step-edit="Edit"
+               data-step-finish="Paste">
+            <div class="glass-refraction" aria-hidden="true"></div>
             <div class="flow-topline">
               <span>Kept Flow</span>
-              <span data-flow-count>01 / 03</span>
+              <span data-flow-count>00 / 03</span>
             </div>
+
+            <ol class="flow-progress" aria-label="Kept Flow progress">
+              <li class="is-active" data-flow-progress="1"><span>1</span><strong>Choose</strong></li>
+              <li data-flow-progress="2"><span>2</span><strong>Edit</strong></li>
+              <li data-flow-progress="3"><span>3</span><strong>Paste</strong></li>
+            </ol>
+
+            <p class="flow-directive" data-flow-directive aria-live="polite">Pick a card or drag it into Kept.</p>
 
             <div class="source-orbit" aria-label="Choose something you copied">
               <button class="source-card source-card-text" type="button" draggable="true" data-flow-source="text" aria-pressed="false">
@@ -125,7 +137,7 @@
               </button>
             </div>
 
-            <div class="flow-machine" data-flow-dropzone tabindex="0" role="button" aria-label="Place the selected item in Kept">
+            <div class="flow-machine" data-flow-dropzone aria-label="Place the selected item in Kept">
               <div class="machine-depth depth-three"></div>
               <div class="machine-depth depth-two"></div>
               <div class="machine-depth depth-one"></div>
@@ -138,7 +150,7 @@
                 <div class="machine-content">
                   <img src="./assets/KeptLogo.png" width="72" height="72" alt="">
                   <div>
-                    <strong data-flow-title>Screenshot</strong>
+                  <strong data-flow-title>Choose</strong>
                     <span data-flow-description>Pick a card or drag it into Kept.</span>
                   </div>
                 </div>
@@ -150,7 +162,7 @@
             </div>
 
             <div class="flow-caption">
-              <p data-flow-message aria-live="polite">Pick a card or drag it into Kept.</p>
+              <p data-flow-message aria-live="polite">Waiting</p>
               <button type="button" data-flow-reset>Start again</button>
             </div>
           </div>
