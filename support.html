@@ -6,22 +6,24 @@
   <title>Kept — Support</title>
   <meta name="description" content="Official Kept support: setup, clipboard history, Quick Panel, editors, PDF compatibility, privacy, and troubleshooting." />
   <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#050706" />
   <link rel="canonical" href="https://yunusislegel-kept.github.io/kept-support/support.html" />
   <link rel="icon" type="image/png" href="./assets/KeptLogo.png" />
   <style>
     :root {
-      --bg: #07140f;
-      --panel: #0b1d16;
-      --card: #0f241c;
-      --card-soft: #102820;
-      --border: rgba(148, 190, 167, 0.16);
-      --border-strong: rgba(148, 190, 167, 0.28);
-      --text: #e8f1eb;
-      --muted: #a9b8af;
-      --muted-strong: #c5d3c8;
-      --accent: #7cc7a0;
-      --accent-soft: rgba(124, 199, 160, 0.14);
-      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+      color-scheme: dark;
+      --bg: #050706;
+      --panel: #0b0f0d;
+      --card: #111512;
+      --card-soft: #151a16;
+      --border: rgba(235, 244, 238, 0.11);
+      --border-strong: rgba(235, 244, 238, 0.2);
+      --text: #f0f3ef;
+      --muted: #8f9d94;
+      --muted-strong: #c1cbc4;
+      --accent: #a4c7af;
+      --accent-soft: rgba(164, 199, 175, 0.09);
+      --shadow: 0 30px 90px rgba(0, 0, 0, 0.46);
     }
 
     * { box-sizing: border-box; }
@@ -32,9 +34,9 @@
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Arial, sans-serif;
       background:
-        radial-gradient(circle at 20% 0%, rgba(124, 199, 160, 0.16), transparent 32%),
-        radial-gradient(circle at 80% 10%, rgba(124, 199, 160, 0.08), transparent 28%),
-        var(--bg);
+        radial-gradient(circle at 20% 0%, rgba(113, 142, 122, 0.12), transparent 32%),
+        radial-gradient(circle at 80% 10%, rgba(207, 220, 211, 0.04), transparent 28%),
+        linear-gradient(155deg, #050706, #080b09 48%, #040605);
       color: var(--text);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
@@ -56,7 +58,7 @@
       justify-content: space-between;
       padding: 8px 14px;
       border: 1px solid var(--border);
-      background: rgba(11, 29, 22, 0.72);
+      background: rgba(10, 13, 11, 0.72);
       border-radius: 999px;
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
@@ -101,17 +103,17 @@
     }
 
     .topnav a.cta {
-      background: var(--accent);
-      color: #062016;
+      background: #e0e8e2;
+      color: #0a0d0b;
       padding: 8px 14px;
     }
 
-    .topnav a.cta:hover { background: #6db691; color: #062016; }
+    .topnav a.cta:hover { background: #f2f5f2; color: #0a0d0b; }
 
     /* Hero */
     .hero {
       border: 1px solid var(--border);
-      background: linear-gradient(180deg, rgba(15, 36, 28, 0.96), rgba(8, 24, 18, 0.96));
+      background: linear-gradient(145deg, rgba(27, 32, 28, 0.78), rgba(7, 10, 8, 0.88));
       border-radius: 32px;
       padding: 48px 42px;
       box-shadow: var(--shadow);
@@ -125,7 +127,7 @@
       width: 420px;
       height: 420px;
       border-radius: 999px;
-      background: rgba(124, 199, 160, 0.08);
+      background: rgba(164, 199, 175, 0.055);
       right: -160px;
       bottom: -180px;
       pointer-events: none;
@@ -136,9 +138,9 @@
       height: 84px;
       border-radius: 22px;
       border: 1px solid var(--border-strong);
-      background: rgba(124, 199, 160, 0.08);
+      background: rgba(255, 255, 255, 0.045);
       padding: 10px;
-      box-shadow: 0 12px 40px rgba(124, 199, 160, 0.16);
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.32);
       display: block;
     }
 
@@ -204,18 +206,21 @@
     }
 
     .button.primary {
-      background: var(--accent);
-      color: #062016;
+      background: #e0e8e2;
+      color: #0a0d0b;
       border-color: transparent;
     }
 
-    .button.primary:hover { background: #6db691; text-decoration: none; }
+    .button.primary:hover { background: #f2f5f2; text-decoration: none; }
     .button:hover { background: rgba(124, 199, 160, 0.10); text-decoration: none; }
 
     .section {
       margin-top: 28px;
       border: 1px solid var(--border);
-      background: rgba(11, 29, 22, 0.82);
+      background: rgba(13, 17, 14, 0.74);
+      box-shadow: inset 0 1px rgba(255,255,255,.08);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border-radius: 28px;
       padding: 32px;
     }
@@ -230,7 +235,7 @@
 
     .card {
       border: 1px solid var(--border);
-      background: rgba(15, 36, 28, 0.82);
+      background: rgba(255, 255, 255, 0.035);
       border-radius: 22px;
       padding: 22px;
       min-height: 160px;
@@ -274,7 +279,7 @@
 
     .faq-item {
       border: 1px solid var(--border);
-      background: rgba(15, 36, 28, 0.68);
+      background: rgba(255, 255, 255, 0.03);
       border-radius: 18px;
       padding: 20px;
     }
